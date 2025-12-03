@@ -48,4 +48,26 @@ void Vehiculo::setUbicacionX(int x) {
 void Vehiculo::setUbicacionY(int y) {
 	ubicacionY = y;
 }
+
 // Metodos
+
+bool Vehiculo::agregarCarga(int volumen) {
+	if (volumen <= 0) 
+		return false; // No se puede agregar carga negativa
+
+	if (capacidadActual + volumen <= capacidad) { // Verificar si hay espacio suficiente
+		capacidadActual += volumen;
+		return true;
+	}
+	return false; // Excede capacidad
+}
+
+bool Vehiculo::quitarCarga(int volumen) {
+	if (volumen <= 0) 
+		return false; // No se puede quitar carga negativa
+	if (capacidadActual - volumen >= 0) { // Verificar si hay suficiente carga para quitar
+		capacidadActual -= volumen;
+		return true;
+	}
+	return false; // No hay suficiente carga
+}

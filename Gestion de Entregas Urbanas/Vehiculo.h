@@ -33,6 +33,9 @@ public:
 	void setUbicacionY(int y);
 
 	// Metodos
-
+	// Carga
+	bool agregarCarga(int volumen);
+	// Descarga
+	bool quitarCarga(int volumen);
 };
 #endif
