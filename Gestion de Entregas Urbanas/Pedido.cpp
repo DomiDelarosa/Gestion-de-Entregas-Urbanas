@@ -44,6 +44,7 @@ void Pedido::setVolumen(int volumen) {
 		this->volumen = volumen;
 }
 void Pedido::setPrioridad(int prioridad) {
+	if (prioridad >= 1 && prioridad <= 5)
 	    this->prioridad = prioridad;
 }
 void Pedido::setOrigenX(int origenX) {
@@ -67,11 +68,26 @@ void Pedido::cargarDatos() {
 
 	std::cout << "id generado: " << this->id << std::endl;
 
+    do {
     std::cout << "Volumen: " << std::endl;
     std::cin >> volumen;
 
-    std::cout << "Prioridad (1-5): " << std::endl;
-    std::cin >> prioridad;
+        if (volumen <= 0) {
+            std::cout << "ERROR: El volumen debe ser un número positivo.\n";
+            std::cin.clear();
+        }
+	} while (volumen <= 0);
+
+    do {
+        std::cout << "Prioridad (1-5): ";
+        std::cin >> prioridad;
+
+        if (prioridad < 1 || prioridad > 5) {
+            std::cout << "ERROR: La prioridad debe estar entre 1 y 5.\n";
+            std::cin.clear();
+        }
+
+    } while (prioridad < 1 || prioridad > 5);
 
     std::cout << "Origen X: " << std::endl;
     std::cin >> ox;
