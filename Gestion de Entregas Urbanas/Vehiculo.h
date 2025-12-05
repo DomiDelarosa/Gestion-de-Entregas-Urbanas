@@ -1,6 +1,7 @@
 #ifndef VEHICULO_H
 #define VEHICULO_H
 #include <string>
+#include "Pedido.h"
 
 class Vehiculo
 {
@@ -34,7 +35,7 @@ public:
 
 	// Metodos
 	// Carga
-	bool agregarCarga(int volumen);
+	int agregarCarga(const Pedido& p);
 	// Descarga
 	bool quitarCarga(int volumen);
 };

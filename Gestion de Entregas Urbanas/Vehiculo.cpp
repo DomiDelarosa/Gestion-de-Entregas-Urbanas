@@ -1,5 +1,4 @@
 #include "Vehiculo.h"
-
 using namespace std;
 
 // Constructor
@@ -51,15 +50,15 @@ void Vehiculo::setUbicacionY(int y) {
 
 // Metodos
 
-bool Vehiculo::agregarCarga(int volumen) {
+int Vehiculo::agregarCarga(const Pedido& p) {
+	int volumen = p.getVolumen();
 	if (volumen <= 0) 
-		return false; // No se puede agregar carga negativa
+		return 1; // No se puede agregar carga negativa
 
-	if (capacidadActual + volumen <= capacidad) { // Verificar si hay espacio suficiente
-		capacidadActual += volumen;
-		return true;
-	}
-	return false; // Excede capacidad
+	if (volumen <= capacidadActual) // Verificar si hay espacio suficiente //
+		return capacidadActual -= volumen;
+
+	return capacidadActual; // Excede capacidad
 }
 
 bool Vehiculo::quitarCarga(int volumen) {

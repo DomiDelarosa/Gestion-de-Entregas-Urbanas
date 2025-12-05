@@ -1,9 +1,12 @@
 #include "Pedido.h"
+#include <iostream>
+
+// Getters
 
 char Pedido::getId() {
 	return id;
 }
-int Pedido::getVolumen() {
+int Pedido::getVolumen() const {
 	return volumen;
 }
 int Pedido::getPrioridad() {
@@ -21,14 +24,14 @@ int Pedido::getDestinoX() {
 int Pedido::getDestinoY() {
 	return destinoY;
 }
-void Pedido::setId(char id) {
-	this->id = id;
-}
 
 // Setters
 
+void Pedido::setId(char id) {
+	this->id = id;
+}
 void Pedido::setVolumen(int volumen) {
-	this->volumen = volumen;
+		this->volumen = volumen;
 }
 void Pedido::setPrioridad(int prioridad) {
 	this->prioridad = prioridad;

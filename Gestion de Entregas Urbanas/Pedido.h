@@ -21,7 +21,7 @@ public:
 
 	// Getters
 	char getId();
-	int getVolumen();
+	int getVolumen() const;
 	int getPrioridad();
 	int getOrigenX();
 	int getOrigenY();
@@ -29,7 +29,6 @@ public:
 	int getDestinoY();
 
 	// Setters
-
 	void setId(char id);
 	void setVolumen(int volumen);
 	void setPrioridad(int prioridad);
