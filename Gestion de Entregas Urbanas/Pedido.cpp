@@ -1,9 +1,15 @@
 #include "Pedido.h"
 #include <iostream>
 
+Pedido::Pedido(int volumen, int prioridad, int origenX, int origenY, int destinoX, int destinoY)
+    : volumen(volumen), prioridad(prioridad),
+    origenX(origenX), origenY(origenY),
+    destinoX(destinoX), destinoY(destinoY)
+{
+    id = generarID();
+}
 // Getters
-
-char Pedido::getId() {
+std::string Pedido::getId() {
 	return id;
 }
 int Pedido::getVolumen() const {
@@ -26,11 +32,11 @@ int Pedido::getDestinoY() {
 }
 
 // Setters
-
-void Pedido::setId(char id) {
+void Pedido::setId(std::string id) {
 	this->id = id;
 }
 void Pedido::setVolumen(int volumen) {
+	if (volumen > 0)
 		this->volumen = volumen;
 }
 void Pedido::setPrioridad(int prioridad) {
@@ -50,3 +56,34 @@ void Pedido::setDestinoY(int destinoY) {
 }
 
 // Métodos
+void Pedido::cargarDatos() {
+    std::string id;
+    int volumen, prioridad, ox, oy, dx, dy;
+
+	std::cout << "id generado: " << generarID() << std::endl;
+
+    std::cout << "Volumen: " << std::endl;
+    std::cin >> volumen;
+
+    std::cout << "Prioridad (1-5): " << std::endl;
+    std::cin >> prioridad;
+
+    std::cout << "Origen X: " << std::endl;
+    std::cin >> ox;
+
+    std::cout << "Origen Y: " << std::endl;
+    std::cin >> oy;
+
+    std::cout << "Destino X: " << std::endl;
+    std::cin >> dx;
+
+    std::cout << "Destino Y: " << std::endl;
+    std::cin >> dy;
+
+    setVolumen(volumen);
+    setPrioridad(prioridad);
+    setOrigenX(ox);
+    setOrigenY(oy);
+    setDestinoX(dx);
+    setDestinoY(dy);
+}
