@@ -2,6 +2,7 @@
 #define VEHICULO_H
 #include <string>
 #include "Pedido.h"
+#include <vector>
 
 class Vehiculo
 {
@@ -12,6 +13,7 @@ private:
 	int velocidad; // km/h
 	int ubicacionX;
 	int ubicacionY;
+	std::vector<Pedido> cargas;
 
 public:
 	// Constructor
@@ -35,8 +37,8 @@ public:
 
 	// Metodos
 	// Carga
-	int agregarCarga(const Pedido& p);
+	bool agregarCarga(const Pedido& p);
 	// Descarga
-	bool quitarCarga(int volumen);
+	bool quitarCarga(const std::string& id);
 };
 #endif

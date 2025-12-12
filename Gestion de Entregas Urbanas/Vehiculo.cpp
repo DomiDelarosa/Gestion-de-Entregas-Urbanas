@@ -50,23 +50,27 @@ void Vehiculo::setUbicacionY(int y) {
 
 // Metodos
 
-int Vehiculo::agregarCarga(const Pedido& p) {
+bool Vehiculo::agregarCarga(const Pedido& p) {
 	int volumen = p.getVolumen();
-	if (volumen <= 0) 
-		return 1; // No se puede agregar carga negativa
+	if (volumen <= 0)
+		return false;
 
-	if (volumen <= capacidadActual) // Verificar si hay espacio suficiente //
-		return capacidadActual -= volumen;
+	if (capacidadActual + volumen > capacidad)
+		return false;
 
-	return capacidadActual; // Excede capacidad
+	cargas.push_back(p);
+
+	capacidadActual += volumen;
+
+	return true;
 }
 
-bool Vehiculo::quitarCarga(int volumen) {
-	if (volumen <= 0) 
-		return false; // No se puede quitar carga negativa
-	if (capacidadActual - volumen >= 0) { // Verificar si hay suficiente carga para quitar
-		capacidadActual -= volumen;
-		return true;
+bool Vehiculo::quitarCarga(const string& id) {
+	for (size_t i = 0; i < cargas.size(); i++)
+	{
+		if (cargas[i].getId() == id)
+		{
+			cargas.erase(cargas.begin() + i);
+		}
 	}
-	return false; // No hay suficiente carga
 }
