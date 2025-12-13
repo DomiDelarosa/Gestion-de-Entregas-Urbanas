@@ -4,13 +4,7 @@
 #include <iomanip>
 #include <random>
 
-Pedido::Pedido(int volumen, int prioridad, int origenX, int origenY, int destinoX, int destinoY)
-    : volumen(volumen), prioridad(prioridad),
-    origenX(origenX), origenY(origenY),
-    destinoX(destinoX), destinoY(destinoY)
-{
-    id = generarID();
-}
+using namespace std;
 
 // Getters
 string Pedido::getId() const {	return id; }
