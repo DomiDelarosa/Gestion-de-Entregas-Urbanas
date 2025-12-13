@@ -13,32 +13,16 @@ Pedido::Pedido(int volumen, int prioridad, int origenX, int origenY, int destino
 }
 
 // Getters
-std::string Pedido::getId() {
-	return id;
-}
-int Pedido::getVolumen() const {
-	return volumen;
-}
-int Pedido::getPrioridad() {
-	return prioridad;
-}
-int Pedido::getOrigenX() {
-	return origenX;
-}
-int Pedido::getOrigenY() {
-	return origenY;
-}
-int Pedido::getDestinoX() {
-	return destinoX;
-}
-int Pedido::getDestinoY() {
-	return destinoY;
-}
+string Pedido::getId() const {	return id; }
+int Pedido::getVolumen() const { return volumen; }
+int Pedido::getPrioridad() const { return prioridad; }
+int Pedido::getOrigenX() { return origenX; }
+int Pedido::getOrigenY() { return origenY; }
+int Pedido::getDestinoX() {	return destinoX; }
+int Pedido::getDestinoY() { return destinoY; }
 
 // Setters
-void Pedido::setId(std::string id) {
-	this->id = id;
-}
+void Pedido::setId(string id) {this->id = id; }
 void Pedido::setVolumen(int volumen) {
 	if (volumen > 0)
 		this->volumen = volumen;
@@ -66,10 +50,10 @@ void Pedido::setDestinoY(int destinoY) {
 void Pedido::cargarDatos() {
     int volumen, prioridad, ox, oy, dx, dy;
 
-	std::cout << "id generado: " << this->id << std::endl;
+	std::cout << "id de producto generado: " << this->id << std::endl;
 
     do {
-    std::cout << "Volumen: " << std::endl;
+    std::cout << "Volumen (kg): ";
     std::cin >> volumen;
 
         if (volumen <= 0) {
@@ -89,16 +73,16 @@ void Pedido::cargarDatos() {
 
     } while (prioridad < 1 || prioridad > 5);
 
-    std::cout << "Origen X: " << std::endl;
+    std::cout << "Origen X: ";
     std::cin >> ox;
 
-    std::cout << "Origen Y: " << std::endl;
+    std::cout << "Origen Y: ";
     std::cin >> oy;
 
-    std::cout << "Destino X: " << std::endl;
+    std::cout << "Destino X: ";
     std::cin >> dx;
 
-    std::cout << "Destino Y: " << std::endl;
+    std::cout << "Destino Y: ";
     std::cin >> dy;
 
     setVolumen(volumen);
