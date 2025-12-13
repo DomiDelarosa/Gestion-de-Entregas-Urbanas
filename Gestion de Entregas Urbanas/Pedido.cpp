@@ -25,18 +25,10 @@ void Pedido::setPrioridad(int prioridad) {
 	if (prioridad >= 1 && prioridad <= 5)
 	    this->prioridad = prioridad;
 }
-void Pedido::setOrigenX(int origenX) {
-	this->origenX = origenX;
-}
-void Pedido::setOrigenY(int origenY) {
-	this->origenY = origenY;
-}
-void Pedido::setDestinoX(int destinoX) {
-	this->destinoX = destinoX;
-}
-void Pedido::setDestinoY(int destinoY) {
-	this->destinoY = destinoY;
-}
+void Pedido::setOrigenX(int origenX) { this->origenX = origenX; }
+void Pedido::setOrigenY(int origenY) { this->origenY = origenY; }
+void Pedido::setDestinoX(int destinoX) { this->destinoX = destinoX; }
+void Pedido::setDestinoY(int destinoY) { this->destinoY = destinoY; }
 
 // Métodos
 
@@ -51,8 +43,8 @@ void Pedido::cargarDatos() {
     cin >> volumen;
 
         if (volumen <= 0) {
-            std::cout << "ERROR: El volumen debe ser un número positivo.\n";
-            std::cin.clear();
+            cout << "ERROR: El volumen debe ser un número positivo.\n";
+            cin.clear();
         }
 	} while (volumen <= 0);
 
@@ -88,15 +80,15 @@ void Pedido::cargarDatos() {
 }
 
 // Generar ID único en formato hexadecimal de 8 caracteres (pseudaleatorio)
-std::string Pedido::generarID() {
-	static std::random_device rd; // semilla para el generador
-	static std::mt19937 gen(rd()); // generador Mersenne Twister
-	static std::uniform_int_distribution<unsigned int> dist(0, 0xFFFFFFFF); // rango de 32 bits
+string Pedido::generarID() {
+	static random_device rd; // semilla para el generador
+	static mt19937 gen(rd()); // generador Mersenne Twister
+	static uniform_int_distribution<unsigned int> dist(0, 0xFFFFFFFF); // rango de 32 bits
 
     unsigned int num = dist(gen);
 
-	std::stringstream ss; // stream para formatear el número
-	ss << std::hex << std::uppercase << std::setfill('0') << std::setw(8) << num; // formato hexadecimal, mayusculas, relleno con ceros a la izquierda, ancho 8
+	stringstream ss; // stream para formatear el número
+	ss << hex << uppercase << setfill('0') << setw(8) << num; // formato hexadecimal, mayusculas, relleno con ceros a la izquierda, ancho 8
 
     return ss.str();
 }
