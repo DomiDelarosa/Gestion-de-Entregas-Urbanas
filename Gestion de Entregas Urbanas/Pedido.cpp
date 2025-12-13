@@ -50,11 +50,11 @@ void Pedido::setDestinoY(int destinoY) {
 void Pedido::cargarDatos() {
     int volumen, prioridad, ox, oy, dx, dy;
 
-	std::cout << "id de producto generado: " << this->id << std::endl;
+	cout << "id de producto generado: " << this->id << endl;
 
     do {
-    std::cout << "Volumen (kg): ";
-    std::cin >> volumen;
+    cout << "Volumen (kg): ";
+    cin >> volumen;
 
         if (volumen <= 0) {
             std::cout << "ERROR: El volumen debe ser un número positivo.\n";
@@ -73,17 +73,17 @@ void Pedido::cargarDatos() {
 
     } while (prioridad < 1 || prioridad > 5);
 
-    std::cout << "Origen X: ";
-    std::cin >> ox;
+    cout << "Origen X: ";
+    cin >> ox;
 
-    std::cout << "Origen Y: ";
-    std::cin >> oy;
+    cout << "Origen Y: ";
+    cin >> oy;
 
-    std::cout << "Destino X: ";
-    std::cin >> dx;
+    cout << "Destino X: ";
+    cin >> dx;
 
-    std::cout << "Destino Y: ";
-    std::cin >> dy;
+    cout << "Destino Y: ";
+    cin >> dy;
 
     setVolumen(volumen);
     setPrioridad(prioridad);
