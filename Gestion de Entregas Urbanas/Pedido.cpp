@@ -49,12 +49,12 @@ void Pedido::cargarDatos() {
 	} while (volumen <= 0);
 
     do {
-        std::cout << "Prioridad (1-5): ";
-        std::cin >> prioridad;
+        cout << "Prioridad (1-5): ";
+        cin >> prioridad;
 
         if (prioridad < 1 || prioridad > 5) {
-            std::cout << "ERROR: La prioridad debe estar entre 1 y 5.\n";
-            std::cin.clear();
+            cout << "ERROR: La prioridad debe estar entre 1 y 5.\n";
+            cin.clear();
         }
 
     } while (prioridad < 1 || prioridad > 5);
