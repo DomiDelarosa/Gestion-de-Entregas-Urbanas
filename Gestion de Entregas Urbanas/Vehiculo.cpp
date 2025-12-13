@@ -51,6 +51,18 @@ bool Vehiculo::quitarCarga(const string& id) {
 		if (cargas[i].getId() == id)
 		{
 			cargas.erase(cargas.begin() + i);
+			return true;
 		}
+	}
+	return false;
+}
+
+void Vehiculo::mostrarCargas() {
+	cout << "Pedidos transportados por " << placa << ":\n";
+	for (const Pedido& p : cargas) {
+		cout << " - ID: " << p.getId() << endl
+			<< " Volumen: " << p.getVolumen() << endl
+			<< " Prioridad: " << p.getPrioridad()
+			<< endl;
 	}
 }

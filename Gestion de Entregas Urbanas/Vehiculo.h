@@ -2,6 +2,7 @@
 #define VEHICULO_H
 #include <string>
 #include "Pedido.h"
+#include <iostream>
 #include <vector>
 
 class Vehiculo
@@ -40,5 +41,7 @@ public:
 	bool agregarCarga(const Pedido& p);
 	// Descarga
 	bool quitarCarga(const std::string& id);
+
+	void mostrarCargas();
 };
 #endif
