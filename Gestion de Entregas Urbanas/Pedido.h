@@ -15,16 +15,16 @@ private:
 	int destinoY;
 
 public:
-
 	// Constructor
 	Pedido(int volumen, int prioridad, int origenX, int origenY, int destinoX, int destinoY)
 		: volumen(volumen), prioridad(prioridad), origenX(origenX), origenY(origenY), destinoX(destinoX), destinoY(destinoY) {
+		id = generarID();
 	}
 
 	// Getters
-	std::string getId();
+	std::string getId() const;
 	int getVolumen() const;
-	int getPrioridad();
+	int getPrioridad() const;
 	int getOrigenX();
 	int getOrigenY();
 	int getDestinoX();
