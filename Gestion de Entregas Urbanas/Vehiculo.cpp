@@ -50,8 +50,10 @@ bool Vehiculo::quitarCarga(const string& id) {
 	{
 		if (cargas[i].getId() == id)
 		{
+			capacidadActual -= cargas[i].getVolumen();
 			cargas.erase(cargas.begin() + i);
 			return true;
+
 		}
 	}
 	return false;
