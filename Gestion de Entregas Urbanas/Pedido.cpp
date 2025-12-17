@@ -46,7 +46,12 @@ void Pedido::cargarDatos() {
             cout << "ERROR: El volumen debe ser un número positivo.\n";
             cin.clear();
         }
-	} while (volumen <= 0);
+
+        if (volumen > 100) {
+            cout << "ERROR: El volumen no debe exceder los 100 kg.\n";
+            cin.clear();
+		}
+	} while (volumen <= 0 || volumen > 100);
 
     do {
         cout << "Prioridad (1-5): ";
