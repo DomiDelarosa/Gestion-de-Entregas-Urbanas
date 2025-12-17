@@ -63,7 +63,7 @@ void Vehiculo::mostrarCargas() {
 	cout << "Pedidos transportados por " << placa << ":\n";
 	for (const Pedido& p : cargas) {
 		cout << " - ID: " << p.getId() << endl
-			<< " Volumen: " << p.getVolumen() << endl
+			<< " Volumen: " << p.getVolumen() << "kg" << endl
 			<< " Prioridad: " << p.getPrioridad()
 			<< endl;
 	}
